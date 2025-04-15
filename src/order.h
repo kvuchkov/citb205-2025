@@ -13,9 +13,9 @@ class Order
 public:
     Order();
     void add(const Item &item);
-    void add(const PercentageDiscount &discount);
+    void set(const Discount *discount);
     void print(std::ostream &out);
 private:
     vector<Item> items;
-    PercentageDiscount discount;
+    const Discount *discount;
 };
