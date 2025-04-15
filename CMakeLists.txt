@@ -7,3 +7,4 @@ set(CMAKE_CXX_STANDARD 17)
 file(GLOB sources RELATIVE ${CMAKE_SOURCE_DIR} "src/*.cpp")
 
 add_executable(darsi ${sources})
+target_compile_options(darsi PRIVATE -Wsuggest-override)
