@@ -2,6 +2,7 @@
 #include "order.h"
 #include "item.h"
 #include "discount.h"
+#include "menu.h"
 
 using namespace std;
 
@@ -10,6 +11,7 @@ int main(int argc, char *argv[])
     cout << "Welcome to Darsi!" << endl;
 
     Order order;
+    Menu menu;
 
     string cmd;
     while (cin >> cmd)
@@ -18,12 +20,18 @@ int main(int argc, char *argv[])
         {
             break;
         }
+        else if (cmd == "menu")
+        {
+            menu.print(cout);
+        }
         else if (cmd == "add")
         {
-            string name;
-            double price;
-            cin >> name >> price;
-            order.add(Item(name, price));
+            int id, quantity;
+            cin >> id >> quantity;
+            for (int i = 0; i < quantity; ++i)
+            {
+                order.add(menu.get(id));
+            }
         }
         else if (cmd == "discount")
         {
